@@ -57,18 +57,35 @@ async function main() {
     //     file: fs.createReadStream("speech.mp3"),
     //     model: "whisper-1",
     // });
-
     // console.log(transcription.text);
 
-    const myAssistant = await openai.beta.assistants.create({
-        instructions:
-            "You are a personal math tutor. When asked a question, write and run Python code to answer the question.",
-        name: "Math Tutor",
-        tools: [{ type: "code_interpreter" }],
-        model: "gpt-4",
-    });
+    // const myAssistant = await openai.beta.assistants.create({
+    //     instructions:
+    //         "You are a personal math tutor. When asked a question, write and run Python code to answer the question.",
+    //     name: "Math Tutor",
+    //     tools: [{ type: "code_interpreter" }],
+    //     model: "gpt-4",
+    // });
+    // console.log(myAssistant);
 
-    console.log(myAssistant);
+    // const messageThread = await openai.beta.threads.create({
+    //     messages: [
+    //         {
+    //             role: "user",
+    //             content: "Hello, what is ChatGPT?",
+    //             file_ids: [],
+    //         },
+    //         {
+    //             role: "user",
+    //             content: "How does ChatGPT work? Explain it in simple terms.",
+    //         },
+    //     ],
+    // });
+    // console.log(messageThread);
+
+    const myThread = await openai.beta.threads.retrieve("thread_id");
+
+    console.log(myThread);
 }
 
 main();
