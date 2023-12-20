@@ -13,6 +13,19 @@ async function main() {
     });
 
     console.log(completion.choices[0]);
+
+    const embedding = await openai.embeddings.create({
+        model: "text-embedding-ada-002",
+        input: "The quick brown fox jumped over the lazy dog",
+    });
+
+    console.log(embedding);
+
+    const image = await openai.images.generate({
+        prompt: "A cute baby sea otter",
+    });
+
+    console.log(image.data);
 }
 
 main();
