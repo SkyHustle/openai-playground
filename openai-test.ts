@@ -44,14 +44,21 @@ async function main() {
     //     console.log(content);
     // }
 
-    const mp3 = await openai.audio.speech.create({
-        model: "tts-1",
-        voice: "alloy",
-        input: "Today is a wonderful day to build something people love!",
+    // const mp3 = await openai.audio.speech.create({
+    //     model: "tts-1",
+    //     voice: "alloy",
+    //     input: "Today is a wonderful day to build something people love!",
+    // });
+    // console.log(speechFile);
+    // const buffer = Buffer.from(await mp3.arrayBuffer());
+    // await fs.promises.writeFile(speechFile, buffer);
+
+    const transcription = await openai.audio.transcriptions.create({
+        file: fs.createReadStream("speech.mp3"),
+        model: "whisper-1",
     });
-    console.log(speechFile);
-    const buffer = Buffer.from(await mp3.arrayBuffer());
-    await fs.promises.writeFile(speechFile, buffer);
+
+    console.log(transcription.text);
 }
 
 main();
