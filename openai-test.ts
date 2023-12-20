@@ -53,12 +53,22 @@ async function main() {
     // const buffer = Buffer.from(await mp3.arrayBuffer());
     // await fs.promises.writeFile(speechFile, buffer);
 
-    const transcription = await openai.audio.transcriptions.create({
-        file: fs.createReadStream("speech.mp3"),
-        model: "whisper-1",
+    // const transcription = await openai.audio.transcriptions.create({
+    //     file: fs.createReadStream("speech.mp3"),
+    //     model: "whisper-1",
+    // });
+
+    // console.log(transcription.text);
+
+    const myAssistant = await openai.beta.assistants.create({
+        instructions:
+            "You are a personal math tutor. When asked a question, write and run Python code to answer the question.",
+        name: "Math Tutor",
+        tools: [{ type: "code_interpreter" }],
+        model: "gpt-4",
     });
 
-    console.log(transcription.text);
+    console.log(myAssistant);
 }
 
 main();
