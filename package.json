@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "ts-node openai-node-library.ts"
+        "start": "ts-node multiple-function-calls-in-one-response.ts"
     },
     "dependencies": {
         "dotenv": "^16.3.1",
