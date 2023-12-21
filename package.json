@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "ts-node multiple-function-calls-in-one-response.ts"
+        "start": "ts-node function-call-helpers-zod.ts"
     },
     "dependencies": {
         "dotenv": "^16.3.1",
