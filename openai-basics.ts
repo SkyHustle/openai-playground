@@ -17,6 +17,7 @@ async function main() {
     // });
     // console.log(completion.choices[0]);
 
+    // Automated function calls
     const runner = openai.beta.chat.completions
         .runTools({
             model: "gpt-3.5-turbo",
@@ -48,10 +49,11 @@ async function main() {
                 },
             ],
         })
-        .on("message", (message) => console.log(message));
+        .on("message", (message) =>
+            console.log("on message callback", message)
+        );
 
     const finalContent = await runner.finalContent();
-    console.log();
     console.log("Final content:", finalContent);
 
     // const embedding = await openai.embeddings.create({
