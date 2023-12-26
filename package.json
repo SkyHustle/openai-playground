@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "ts-node function-call-helpers-zod.ts"
+        "start": "ts-node assistant.ts"
     },
     "dependencies": {
         "dotenv": "^16.3.1",
